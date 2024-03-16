@@ -5,7 +5,7 @@
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
 		if(rand(1,3) == 3)
 			if(lowertext(newletter) == "o")
 				newletter = "u"
@@ -45,8 +45,8 @@
 		var/index = list_find(split_phrase, word) //Find the word in the split phrase so we can replace it.
 
 		//Search for dipthongs (two letters that make one sound.)
-		var/first_sound = copytext(word,1,3)
-		var/first_letter = copytext(word,1,2)
+		var/first_sound = copytext_char(word,1,3)
+		var/first_letter = copytext_char(word,1,2)
 		if(lowertext(first_sound) in list("ch","th","sh"))
 			first_letter = first_sound
 
@@ -105,7 +105,7 @@ english_only - whether to use traditional english letters only (for use in NanoU
 	if(input_size < 20) // Short messages get distorted too. Bit hacksy.
 		distortion += (20-input_size)/2
 	while(lentext <= input_size)
-		var/newletter=copytext(message, lentext, lentext+1)
+		var/newletter=copytext_char(message, lentext, lentext+1)
 		if(!prob(distortion_chance))
 			new_message += newletter
 			lentext += 1

@@ -16,7 +16,7 @@
 		if(isnull(minimized_radio_keys[department_radio_keys[key]]))
 			minimized_radio_keys[department_radio_keys[key]] = list()
 
-		var/letter = lowertext(copytext(key,2,3))
+		var/letter = lowertext(copytext_char(key,2,3))
 
 		minimized_radio_keys[department_radio_keys[key]] |= letter
 

@@ -41,9 +41,9 @@
 
 	var/regex/words = new(@"(\S+)", "ig")
 
-	var/end_char = copytext(message, length(message), length(message) + 1)
+	var/end_char = copytext_char(message, length(message), length(message) + 1)
 	if(end_char in list(".", "?", "!", "-", "~", ":"))
-		return words.Replace(copytext(message, 1, length(message)), TYPE_PROC_REF(/mob/living/scp999, glubbify)) + end_char
+		return words.Replace(copytext_char(message, 1, length(message)), TYPE_PROC_REF(/mob/living/scp999, glubbify)) + end_char
 	else
 		return words.Replace(message, TYPE_PROC_REF(/mob/living/scp999, glubbify))
 

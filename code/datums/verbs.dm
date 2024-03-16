@@ -89,7 +89,7 @@
 		entry["parent"] = "[type]"
 		entry["name"] = verbpath.desc
 		if (verbpath.name[1] == "@")
-			entry["command"] = copytext(verbpath.name, length(verbpath.name[1]) + 1)
+			entry["command"] = copytext_char(verbpath.name, length(verbpath.name[1]) + 1)
 		else
 			entry["command"] = replacetext(verbpath.name, " ", "-")
 

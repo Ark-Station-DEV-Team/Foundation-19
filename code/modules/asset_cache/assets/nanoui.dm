@@ -17,7 +17,7 @@
 	for(var/path in common_dirs)
 		var/list/filenames = flist(path)
 		for(var/filename in filenames)
-			if(copytext(filename, length(filename)) != "/") // Ignore directories.
+			if(copytext_char(filename, length(filename)) != "/") // Ignore directories.
 				if(fexists(path + filename))
 					assets[filename] = fcopy_rsc(path + filename)
 
@@ -27,7 +27,7 @@
 
 	var/list/filenames = flist(MAP_IMAGE_PATH)
 	for(var/filename in filenames)
-		if(copytext(filename, length(filename)) != "/") // Ignore directories.
+		if(copytext_char(filename, length(filename)) != "/") // Ignore directories.
 			var/file_path = MAP_IMAGE_PATH + filename
 			if((filename in mapnames) && fexists(file_path))
 				assets[filename] = fcopy_rsc(file_path)

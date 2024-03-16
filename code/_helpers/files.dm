@@ -55,10 +55,10 @@
 				continue
 		path += choice
 
-		if(copytext(path,-1,0) != "/")		//didn't choose a directory, no need to iterate again
+		if(copytext_char(path,-1,0) != "/")		//didn't choose a directory, no need to iterate again
 			break
 
-	var/extension = copytext(path,-4,0)
+	var/extension = copytext_char(path,-4,0)
 	if( !fexists(path) || !(extension in valid_extensions) )
 		to_chat(src, FONT_COLORED("red","Error: browse_files(): File not found/Invalid file([path])."))
 		return
@@ -87,7 +87,7 @@
 	set background = 1
 	. = list()
 	for(var/f in flist(path))
-		if(copytext("[f]", -1) == "/")
+		if(copytext_char("[f]", -1) == "/")
 			if(recursion)
 				. += .("[path][f]")
 		else
@@ -95,5 +95,5 @@
 
 	if(remove_folders)
 		for(var/file in .)
-			if(copytext("[file]", -1) == "/")
+			if(copytext_char("[file]", -1) == "/")
 				. -= file

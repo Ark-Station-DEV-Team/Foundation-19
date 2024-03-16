@@ -10,5 +10,5 @@
 #define WXH_TO_HEIGHT(measurement, return_var) \
 	do { \
 		var/_measurement = measurement; \
-		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
+		return_var = text2num(copytext_char(_measurement, findtextEx(_measurement, "x") + 1)); \
 	} while(FALSE);

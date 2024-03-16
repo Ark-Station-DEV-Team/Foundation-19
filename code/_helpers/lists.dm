@@ -763,7 +763,7 @@ Checks if a list has the same entries and values as an element of big.
 		for(var/line in lines)
 			if(!length(line))
 				continue
-			if(copytext(line, 1, 2) == "#")
+			if(copytext_char(line, 1, 2) == "#")
 				continue
 			output += line
 		return output

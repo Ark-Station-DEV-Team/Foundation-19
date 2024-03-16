@@ -20,4 +20,4 @@
 	return TRUE
 
 /datum/chorus_resource/proc/printed_cost(minimum = FALSE)
-	return "<span style=\"color: [name_color];\">[minimum ? copytext(name, 1, 2) : name]</span>"
+	return "<span style=\"color: [name_color];\">[minimum ? copytext_char(name, 1, 2) : name]</span>"

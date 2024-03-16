@@ -514,7 +514,7 @@
 		if(length(msg) <= 40)
 			return SPAN_NOTICE("[msg]")
 		else
-			return SPAN_NOTICE("[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>")
+			return SPAN_NOTICE("[copytext_char_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>")
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
@@ -546,7 +546,7 @@
 // If usr != src, or if usr == src but the Topic call was not resolved, this is called next.
 /mob/OnTopic(mob/user, href_list, datum/topic_state/state)
 	if(href_list["flavor_more"])
-		var/text = "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY><TT>[replacetext(flavor_text, "\n", "<BR>")]</TT></BODY></HTML>"
+		var/text = "<HTML><HEAD><TITLE>[name]</TITLE><meta http-equiv='X-UA-Compatible' content='IE=edge' charset='UTF-8'/></HEAD><BODY><TT>[replacetext(flavor_text, "\n", "<BR>")]</TT></BODY></HTML>"
 		show_browser(user, text, "window=[name];size=500x200")
 		onclose(user, "[name]")
 		return TOPIC_HANDLED

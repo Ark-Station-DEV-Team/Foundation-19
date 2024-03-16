@@ -191,7 +191,7 @@ var/list/global/organ_rel_size = list(
 	var/block = list()
 	. = list()
 	for(var/i = 1, i <= length(n), i++)
-		var/char = copytext(n, i, i+1)
+		var/char = copytext_char(n, i, i+1)
 		if(!intag && (char == "<"))
 			intag = 1
 			. += stars_no_html(JOINTEXT(block), pr, re_encode) //stars added here
@@ -209,7 +209,7 @@ var/list/global/organ_rel_size = list(
 	text = html_decode(text) //We don't want to screw up escaped characters
 	. = list()
 	for(var/i = 1, i <= length(text), i++)
-		var/char = copytext(text, i, i+1)
+		var/char = copytext_char(text, i, i+1)
 		if(char == " " || prob(pr))
 			. += char
 		else
@@ -225,7 +225,7 @@ var/list/global/organ_rel_size = list(
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
 		if(prob(30))
 			if(lowertext(newletter)=="o")
 				newletter="u"
@@ -255,7 +255,7 @@ var/list/global/organ_rel_size = list(
 	var/p = null
 	p = 1//1 is the start of any word
 	while(p <= n)//while P, which starts at 1 is less or equal to N which is the length.
-		var/n_letter = copytext(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
+		var/n_letter = copytext_char(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
 		if (prob(80) && (ckey(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z")))
 			if (prob(10))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]-[n_letter]")//replaces the current letter with this instead.
@@ -277,7 +277,7 @@ var/list/global/organ_rel_size = list(
 	var/returntext = ""
 	for(var/i = 1, i <= length(t), i++)
 
-		var/letter = copytext(t, i, i+1)
+		var/letter = copytext_char(t, i, i+1)
 		if(prob(50))
 			if(p >= 70)
 				letter = ""
@@ -304,9 +304,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		var/n_letter
 		var/n_mod = rand(1,4)
 		if(p+n_mod>n+1)
-			n_letter = copytext(te, p, n+1)
+			n_letter = copytext_char(te, p, n+1)
 		else
-			n_letter = copytext(te, p, p+n_mod)
+			n_letter = copytext_char(te, p, p+n_mod)
 		if (prob(50))
 			if (prob(30))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]")

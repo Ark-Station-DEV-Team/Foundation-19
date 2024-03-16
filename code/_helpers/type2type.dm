@@ -215,7 +215,7 @@
 				return /atom
 			else
 				return /datum
-	return text2path(copytext(string_type, 1, last_slash))
+	return text2path(copytext_char(string_type, 1, last_slash))
 
 ///Lets us safley attempt to convert an atom to another type. This basically deletes that atom and replaces it with an atom of the new type. Will transfer mind if needed. convertatom2type(atom/target_atom, type, convert_message)
 /proc/convertatom2type(atom/target_atom, type, convert_message, no_transfer = FALSE, force_mind = FALSE)

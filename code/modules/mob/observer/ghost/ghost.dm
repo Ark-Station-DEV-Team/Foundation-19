@@ -191,7 +191,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!(mind && mind.current && can_reenter_corpse))
 		to_chat(src, SPAN_WARNING("You have no body."))
 		return
-	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
+	if(mind.current.key && copytext_char(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
 		to_chat(src, SPAN_WARNING("Another consciousness is in your body... it is resisting you."))
 		return
 	stop_following()
